@@ -1,0 +1,492 @@
+/*Variables*/
+$Center:center;
+$Relative:relative;
+$Absolute:absolute;
+$None:none;
+$Auto:auto;
+$Pointer:pointer;
+
+.BoxCont{
+	display: grid;
+	grid-auto-columns: 1fr;
+
+	//Start Contdark
+	.contdark{
+		display: flex;
+		justify-content: $Center;
+		align-items: $Center;
+		flex-wrap: wrap;
+		min-width: 100%;
+		margin: 20px 0;
+
+		.contcard{
+			width: calc(100% / 3);
+
+			@media (max-width: 1200px){
+				&{
+					width: calc((100% / 2) - 90px);
+				}
+			}
+
+			@media (max-width: 991px){
+				&{
+					width: calc(94%);
+				}
+			}
+
+			.card{
+				position: $Relative;
+				width:  300px;
+				height: 440px;
+				box-shadow: inset 5px 5px 5px rgba(0,0,0,.2),
+							inset -5px -5px 15px rgba(255,255,255,.1),
+							5px 5px 15px rgba(0,0,0,.3),
+							-5px -5px 15px rgba(255,255,255,.1);
+				border-radius: 15px;
+				margin: 30px $Auto;
+
+				&::before{
+					content: '';
+					position: $Absolute;
+					top: 0;
+					left: 0;
+					width: 50%;
+					height: 100%;
+					background-color: rgba(255,255,255,.1);
+				}
+
+				.box{
+					position: $Absolute;
+					top: 20px;
+					left: 20px;
+					bottom: 20px;
+					right: 20px;
+					background-color: #2a2b2f;
+					border: 2px solid #1e1f23;
+					border-radius: 15px;
+					box-shadow: 0 20px 50px rgba(0,0,0,.5);
+					transition: 0.5s;
+					overflow: hidden;
+
+					&::before{
+						content: '';
+						position: $Absolute;
+						top: 0;
+						left: 0;
+						width: 50%;
+						height: 100%;
+						background-color: rgba(255,255,255,.05);
+						pointer-events: $None;
+					}
+
+					.content{
+					    text-align: $Center;
+					    position: $Absolute;
+					    bottom: 0px;
+					    width: 100%;
+					    height: 100%;
+
+						img{
+						    width: 100%;
+						    height: 80%;
+						    // padding: 18px;
+						}
+
+						h1{
+						    position: $Absolute;
+						    top: 10px;
+						    left: 15px;
+						    font-size: 1.5em;
+						    color: #607d8b;
+						    text-align: left;
+						    max-height: 100px;
+						    overflow:hidden;
+							.BoxTitle{
+							    display: block;
+							    top: 0;
+							    left: 70px;
+							    font-size: 1rem;
+							    color: #607d8b;
+							}
+						}
+
+						.price{
+							position: $Absolute;
+							bottom: 33px;
+							right: -126px;
+							font-size: 1.2em;
+							color: #607d8b;
+							font-weight: bold;
+							width: 100%;
+							text-align: left;
+							.priceNum{
+								font-weight: normal;
+								color: #55d4c8;
+								display: block;
+							}
+						}
+
+						.quantity{
+						    position: $Absolute;
+							bottom: 13px;
+							right: 0px;
+							font-size: 1em;
+							color: #607d8b;
+							text-align: left;
+							width: 50%;
+						}
+
+						.discount{
+						    position: $Absolute;
+						    bottom: 15px;
+						    right: 60px;
+						    font-size: 1em;
+						    color: #607d8b;
+						}
+
+
+						h3{
+							font-size: 1.8em;
+							color: rgba(255,255,255,.5);
+							z-index: 1;
+							transition: 0.5s;
+						}
+
+						p{
+							font-size: 16px;
+							font-weight: 300;
+							color: rgba(255,255,255,.5);
+							z-index: 1;
+							transition: 0.5s;
+						}
+
+						a{
+						    position: $Relative;
+						    right: 65px;
+						    display: inline-block;
+						    padding: 8px 20px;
+						    margin-top: 15px;
+						    border-radius: 20px;
+						    text-decoration: $None;
+						    font-weight: 400;
+						    color: #fff;
+						    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+						    background-color: #f44336;
+						    transition: opacity 300ms 300ms ease, 
+						    			transform 300ms 300ms ease, 
+						    			background-color 250ms linear, 
+						    			color 250ms linear;
+
+						    cursor: pointer;
+
+							&:hover{
+								background-color: #89002f;
+								color: #ffeba7;
+							}
+
+						}
+					}
+				}
+
+			}
+		}
+	}
+	//End Contdark
+
+	//Start Wrap
+	.wrap{
+	    height: 40%;
+	    display: flex;
+        width: 100%;
+	    align-items: $Center;
+	    justify-content: space-around;
+	    flex-wrap: wrap;
+
+		.button,.Clear{
+			min-width: 300px;
+			min-height: 60px;
+			font-family: 'Nunito', sans-serif;
+			font-size: 22px;
+			text-transform: uppercase;
+			letter-spacing: 1.3px;
+			font-weight: 700;
+			border: $None;
+			border-radius: 1000px;
+			transition: all 0.3s ease-in-out 0s;
+			cursor: $Pointer;
+			outline: $None;
+			position: $Relative;
+			padding: 10px;
+			margin: 10px;
+
+			&::before {
+				content: '';
+				border-radius: 1000px;
+				min-width: calc(300px + 12px);
+				min-height: calc(60px + 12px);
+				position: $Absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				opacity: 0;
+				transition: all .3s ease-in-out 0s;
+			}
+
+			&:hover,&:focus {
+			  color: #313133;
+			  transform: translateY(-6px);
+			}
+			&:hover{
+				&::before{
+					opacity: 1;
+				}
+
+				&::after{
+					animation: $None;
+					display: $None;
+				}
+			}
+
+			&::after {
+				content: '';
+				width: 30px;
+				height: 30px;
+				border-radius: 100%;
+				position: $Absolute;
+				z-index: -1;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				animation: ring 1.5s infinite;
+				z-index: 1;
+			}
+		}
+
+		.button{
+			color: #313133;
+			background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+			box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+
+			&::before {
+				border: 6px solid #00FFCB;
+				box-shadow: 0 0 60px rgba(0,255,203,.64);
+			}
+
+			&::after {
+				border:6px solid #00bcd4;
+			}
+		}
+
+		.Clear{
+			color:#fff;
+			background: linear-gradient(90deg, #e91e63 0%, #ff5722 100%);
+			box-shadow: 12px 12px 24px #f44336;
+
+			&::before {
+				border: 6px solid #f44336;
+				box-shadow: 12px 12px 60px #f44336;
+			}
+
+			&::after {
+				border: 6px solid #ffc107;
+			}
+		}
+
+	}
+	//End Wrap
+
+	//Start Modal
+	.modal{
+		position: fixed;
+		display: block;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-ms-flex-pack: $Center;
+		justify-content: $Center;
+		margin: 0 $Auto;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		overflow-x: hidden;
+		background-color: rgba(31,32,41,.75);
+		pointer-events: $None;
+		opacity: 0;
+		transition: opacity 250ms 700ms ease;
+
+		i{
+			position: fixed;
+			top: 30px;
+			right: 30px;
+			z-index: 110;
+			width: 40px;
+			border-radius: 3px;
+			height: 30px;
+			text-align: $Center;
+			line-height: 30px;
+			font-size: 18px;
+			background-color: #ffeba7;
+			color: #102770;
+			font-family: 'FontAwesome' !important;
+			content: '\f00d' !important;
+			box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+			pointer-events: $None;
+			transform: translateY(20px);
+
+			transition: opacity 300ms 300ms ease, 
+						transform 300ms 300ms ease, 
+						background-color 250ms linear, 
+						color 250ms linear;
+			opacity: 1;
+			pointer-events: $Auto;
+			transform: translateY(0);
+			cursor: $Pointer;
+
+			&:hover{
+				background-color: #102770;
+				color: #ffeba7;
+			}
+		}
+
+		&.active{
+			$Pointer-events: $Auto;
+			opacity: 1;
+			transition: all 300ms ease-in-out;
+		}
+
+		.modalWrap{
+			position: $Relative;
+			display: block;
+			width: 45%;
+			margin: 0 $Auto;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			border-radius: 4px;
+			overflow: hidden;
+			padding-bottom: 20px;
+			background-color: #fff;
+			-ms-flex-item-align: $Center;
+			align-self: $Center;
+			box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+			opacity: 0;
+			transform: scale(0.6);
+			transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+
+			&.active{
+				opacity: 1;
+				transform: scale(1);
+				transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+			}
+
+			.boxTotal{
+				span{
+					    display: block;
+					    margin: 20px 0 20px 20px;
+					    font-size: 1.5rem;
+					    font-weight: bold;
+				}
+			}
+
+			hr{
+			    width: 90%;
+			    margin: 0 $Auto;
+			}
+
+			.TotalAll{
+			    display: block;
+			    margin: 20px 0 20px 20px;
+			    font-size: 1.5rem;
+			    font-weight: bold;
+			}
+
+			.wrapSure {
+			    position: $Relative;
+			    margin: 0 $Auto;
+			    display: block;
+			    cursor: $Pointer;
+			    display: block;
+			    padding: 8px 20px;
+			    margin-top: 15px;
+			    border-radius: 20px;
+			    text-decoration: $None;
+			    font-weight: 400;
+			    color: #fff;
+			    width: 90%;
+			    -webkit-box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
+			    box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
+			    background-color: #607d8b;			    
+
+				.buttonSure {
+				    background-color: transparent;
+				    border: none;
+				    outline: none;
+				    cursor: pointer;
+				    margin: 0px auto;
+				    width: 100%;
+				    text-align: center;
+				    color: #fff;
+				    height: 46px;
+				    font-weight: bold;
+				    font-size: 30px;
+				}
+			}
+
+
+			@media screen and (max-width: 500px) {
+				&{
+					width: calc(100% - 40px);
+					padding-bottom: 15px;
+				}
+				p{
+				  padding: 15px 20px 0 20px;
+				}
+			}
+
+		}
+	}
+	//End Modal
+
+	.checkoutPay{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		min-width: 100%;
+		position: $Relative;
+		z-index: 100000;
+		top: -30pc;
+		transition: opacity 250ms 700ms ease;
+
+		.BoxPayPal{
+			position: $Relative;
+			width:  300px;
+			height: 440px;
+			// box-shadow: inset 5px 5px 5px rgba(0,0,0,.2),
+			// 			inset -5px -5px 15px rgba(255,255,255,.1),
+			// 			5px 5px 15px rgba(0,0,0,.3),
+			// 			-5px -5px 15px rgba(255,255,255,.1);
+			border-radius: 15px;
+			margin: 30px $Auto;
+
+			div{
+			    margin-top: 4pc;
+			}
+		}
+	}
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+  }
+}

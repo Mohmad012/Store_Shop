@@ -1,0 +1,128 @@
+@import "Cards.module";
+
+.BoxCont{
+	.contdark{
+		.contcard{
+			.card{
+				.box{
+					.content{
+
+						img{
+							height: 100%;
+							padding: 0;
+						}
+
+						h1{
+						    position: $Absolute;
+						    top: 10px;
+						    left: 15px;
+						    font-size: 1.5em;
+						    color: #607d8b;
+						    text-align: left;
+						    max-height: 100px;
+						    overflow:hidden;
+							.BoxTitle{
+							    display: block;
+							    top: 0;
+							    left: 70px;
+							    font-size: 1rem;
+							    color: #607d8b;
+							}
+						}
+
+						p{
+						    position: $Absolute;
+							top: 95px;
+							left: 15px;
+							font-size: 1em;
+							color: #d0d0d0;
+							text-align: left;
+							line-height: 1.5;
+							max-height: 120px;
+							overflow:hidden;
+						}
+
+						.price{
+							position: $Absolute;
+						    bottom: 80px;
+						    left: 15px;
+						    font-size: 1.5em;
+						    color: #607d8b;
+						    font-weight: bold;
+						    width: 100%;
+						    text-align: left;
+							.priceNum{
+								font-weight: normal;
+								color: #55d4c8;
+								display: inline-block;
+							}
+						}
+
+						.QuantBox{
+						    position: $Absolute;
+						    bottom: 120px;
+						    left: 15px;
+						    font-size: 1.5em;
+						    color: #607d8b;
+						    text-align: left;
+							input{
+							    display: block;
+							    width: 145px;
+							    background-color: #607d8b;
+							    border: none;
+							    outline: none;
+							    border-radius: 3px;
+							    padding: 5px;
+							    margin-top: 10px;
+								&::placeholder
+								{
+									color: #fff
+								}
+
+								&:focus::-webkit-input-placeholder
+								{
+									opacity: 0;
+									-webkit-transition: .4s;
+									-moz-transition: .4s;
+									-o-transition: .4s;
+									transition: .4s;
+								}
+
+								&:focus::-ms-input-placeholder
+								{
+									opacity: 0;
+									-webkit-transition: .4s;
+									-moz-transition: .4s;
+									-o-transition: .4s;
+									transition: .4s;
+								}
+
+
+								&:focus::placeholder
+								{
+									opacity: 0;
+									-webkit-transition: .4s;
+									-moz-transition: .4s;
+									-o-transition: .4s;
+									transition: .4s;
+								}
+							}
+						}
+
+						.discount{
+							position: $Absolute;
+						    bottom: 35px;
+						    left: 15px;
+						    font-size: 1.5em;
+						    color: #607d8b;
+						    font-weight: bold;
+						    display: block;
+						    width: 100%;
+						    text-align: left;
+						}
+					}
+				}
+			}
+		}
+	}
+} 
