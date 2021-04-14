@@ -1,0 +1,83 @@
+/*Variables*/
+$Center:center;
+$Relative:relative;
+$Absolute:absolute;
+$ColorOne:#00fff9;
+
+.contload{
+	position: $Relative;
+	width: 100%;
+	display: flex;
+	justify-content: $Center;
+	align-items: $Center;
+	-webkit-box-reflect:below 1px linear-gradient(#0001, #0004);
+
+	.loader{
+		position: $Relative;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background-color: #0d2323;
+		animation: animloader 2s linear infinite;
+
+		&::before {
+			content: '';
+			position: $Absolute;
+			top: 0;
+			left: 0;
+			width: 50%;
+			height: 100%;
+			background-image: linear-gradient(to top, transparent , rgba(0, 255, 249 , 0.4));
+			background-size: 100px 100px;
+			background-repeat: no-repeat;
+			border-top-left-radius: 100px;
+			border-bottom-left-radius: 100px;
+		}
+
+		&::after {
+			content: '';
+			position: $Absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 20px;
+			height: 20px;
+			background-color: $ColorOne;
+			border-radius: 50%;
+			z-index: 10;
+			box-shadow: 0 0 10px $ColorOne,
+						0 0 20px $ColorOne,
+						0 0 30px $ColorOne,
+						0 0 40px $ColorOne,
+						0 0 50px $ColorOne,
+						0 0 60px $ColorOne,
+						0 0 70px $ColorOne,
+						0 0 80px $ColorOne,
+						0 0 90px $ColorOne,
+						0 0 100px $ColorOne;
+		}
+
+		span {
+			position: $Absolute;
+			top: 20px;
+			left: 20px;
+			right: 20px;
+			bottom: 20px;
+			border-radius: 50%;
+			background-color: #102626;
+		}
+	}	
+}
+
+@keyframes animloader
+{
+	0%
+	{
+		transform: rotate(0deg);
+	}
+
+	100%
+	{
+		transform: rotate(360deg);
+	}
+}
