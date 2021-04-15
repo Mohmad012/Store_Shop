@@ -3,6 +3,7 @@ import '../styles/fonts/font-awesome.min.css'
 import '../styles/globals.scss'
 import {Provider} from 'react-redux';
 import store from '../store/store'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
   return (

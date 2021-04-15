@@ -1,11 +1,11 @@
-import React , {useEffect} from "react";
+import React from "react";
 import ReactDOM from "react-dom"
 
-const PayPalButton = paypal.Buttons.driver("react", { React, ReactDOM });
+const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
-function PayPal({price}) {
+const PayPal = ({price}) => {
 
-  const createOrder = (data, actions) =>{
+  const createOrder  = (data, actions) => {
     return actions.order.create({
       purchase_units: [
         {
@@ -15,11 +15,11 @@ function PayPal({price}) {
         },
       ],
     });
-  };
+  }
 
   const onApprove = (data, actions) => {
     return actions.order.capture();
-  };
+  }
 
   return (
     <PayPalButton

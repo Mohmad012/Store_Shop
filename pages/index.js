@@ -1,14 +1,10 @@
 // Page Components
 import ProductsList from '../components/ProductsList'
-import Loading from '../components/Loading'
-import Head from 'next/head'
+
 export default function Home({products}) {
   return (
   	<>
-      <head>
-        <script defer src="https://www.paypal.com/sdk/js?client-id=CAD"></script>
-      </head>
-		  {products ? (<ProductsList products={products} />) : (<Loading />)}
+		  <ProductsList products={products} />
   	</>
   )
 }

@@ -12,18 +12,32 @@ import dynamic from 'next/dynamic';
 import {removeFromCart , clearCart} from '../../store/actions/actions'
 
 const PayPal = dynamic(
-  () => import('../../components/PayPal'),
-  {
-      ssr: false
-  }
-)
+  () => {
+    return import('../../components/PayPal');
+  },
+  { ssr: false }
+);
 
 function Cards({total , cartItem , removeFromCart , clearCart}) {
+
+	console.log('total' ,total)
 
 	const [AddClass , setAddClass] = useState(false);
 
 	const [checkout, setCheckOut] = useState(false);
 	const price = total;
+
+	const [GetItem, setGetItem] = useState(false);
+	const [GetCart, setGetCart] = useState([]);
+
+	useEffect(() => {
+		if (localStorage.getItem('cart')) {
+			setGetItem(true)
+			console.log(JSON.parse(localStorage.getItem('cart')))
+			setGetCart(JSON.parse(localStorage.getItem('cart')))
+		}
+	},[])
+
 
 	const addClass = () => {
 		setAddClass(true)
@@ -100,7 +114,7 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 	}
 
 	const checkoutPayStyle = {
-		opacity: checkout ?  '1': '0',display: checkout ?  'block': 'none'
+		opacity: checkout ?  '1': '0',display: checkout ?  'flex': 'none'
 	}
 
 	return (
@@ -113,9 +127,8 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 
 				</div>
 
-				<div className={styles.wrap} style={{ display: total ? 'flex' : 'none'}}>
+				<div className={styles.wrap} style={{ display: GetItem && total ? 'flex' : 'none'}}>
 				  <button className={styles.button} onClick={addClass}>Pay Now</button>
-
 				  <button className={styles.Clear} onClick={clearItems}>Clear</button>
 				</div>
 
@@ -126,8 +139,8 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 			  		</i>
 			      	<div className={styles.modalWrap} style={modalWrapStyle}>
 
-                    	{showLastInfo}
-                    	<span className={styles.TotalAll}>Total: {total}$</span>
+                    	<div>{showLastInfo}</div>
+                    	<span className={styles.TotalAll}>Total: {total.toFixed(2)}$</span>
 
 						<div className={styles.wrapSure}>
 				          <button className={styles.buttonSure} onClick={() => {setCheckOut(true)}}>
@@ -137,7 +150,7 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 			      	</div>          		
 			  	</div>
 			  	<div className={styles.checkoutPay} style={checkoutPayStyle}>
-			  		<div className={styles.BoxPayPal}>{checkout ? ( <PayPal price={total} /> ) : null}</div>
+			  		<div className={styles.BoxPayPal}>{checkout ? (<PayPal price={total.toFixed(2)} />) : null}</div>
 			  	</div>
 			</div>
 		</>
@@ -147,7 +160,7 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 const mapStatToProps = (state) => {
   return{
   	cartItem:state.cart,
-    total:state.cart.reduce((total,item) => (total + parseInt(item.product.FinalPrice)) , 0)
+    total:state.cart.reduce((total,item) => (total + parseFloat(item.product.FinalPrice)) , 0)
   }	
 }
 
