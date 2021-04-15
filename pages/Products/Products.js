@@ -1,5 +1,6 @@
 // Page Components
 import Link from 'next/link'
+import Meta from '../../components/Meta'
 
 // Page Style
 import style from '../../styles/ProductsPage.module.scss'
@@ -23,9 +24,12 @@ function Products({products}) {
 		))) : (<p>Loading...</p>)
 
 	return (
-		<div className={style.contdark}>
-			{AddProducts}
-		</div>
+		<>
+			<Meta title={"Products"} />
+			<div className={style.contdark}>
+				{AddProducts}
+			</div>
+		</>
 	)
 }
 

@@ -8,7 +8,7 @@ import productStyles from '../styles/Products.module.scss'
 const ProductItem = ({ product }) => {
 	return (
 		<>
-			<Meta title={product.title} description={product.description} />
+			<Meta title={"Home"} />
 			<div className={productStyles.contcard}>
 				<div className={productStyles.card}>
 					<div className={productStyles.box}>

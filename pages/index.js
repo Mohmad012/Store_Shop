@@ -3,10 +3,7 @@ import ProductsList from '../components/ProductsList'
 
 export default function Home({products}) {
   return (
-  	<>
-      <Meta title={"Home"} />
-		  <ProductsList products={products} />
-  	</>
+  	<ProductsList products={products} />
   )
 }
 
