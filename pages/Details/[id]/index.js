@@ -14,7 +14,7 @@ import {addToCart} from '../../../store/actions/actions'
 
 const Details = ({ product , addToCart}) => {
 
-  const [quantity, setQuantity]      = useState(0);
+  const [quantity, setQuantity]      = useState(1);
   const [initPrice , setInitPrice]   = useState(product.price);
   const [FinalPrice , setFinalPrice] = useState(0);
   const [Disocunt , setDisocunt]     = useState(0);
