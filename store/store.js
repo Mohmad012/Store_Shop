@@ -1,16 +1,6 @@
 import {createStore, combineReducers} from 'redux'
 import cartReducer from './reducers'
 
-		 	// {
-		 	// 	product:{
-				// 	FinalPrice: 0,
-				// 	LastImage: '',
-				// 	LastTitle: '',
-				// 	quantity: 0,
-		 	// 	},
-		 	// 	quantity:0
-		 	// }
-
 function loadState(){
 	try{
 		const state = localStorage.getItem('cart')
