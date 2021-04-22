@@ -28,7 +28,10 @@ const Details = ({ product , addToCart}) => {
           document.querySelector('h1 span').classList.add("BoxTitle")
       }
       if (product.description.length >= 120) {
-          document.querySelector('p').innerHTML = 'Description :' + product.description.slice(0 , 90) + '...'
+          document.querySelector('p span').innerHTML = product.description.slice(0 , 90) + '...'
+          document.querySelector('p span').classList.add("BoxDesc")
+
+        
       }
     }
     else{
@@ -41,6 +44,10 @@ const Details = ({ product , addToCart}) => {
 
       if (VAL < 0)
           return ;
+
+      if (VAL > 100)
+          return ;
+
 
       setQuantity(e.target.value)
   }
@@ -98,7 +105,7 @@ const Details = ({ product , addToCart}) => {
               <div className={styles.box}>
                 <div className={styles.content}>
                   <h1 className={styles.h1}>Title : <span className={styles.BoxTitle}>{product.title}</span></h1>
-                  <p className={styles.p}>Description : {product.description}</p>
+                  <p className={styles.p}>Description : <span className={styles.BoxDesc}>{product.description}</span></p>
                   <span className={styles.price}>Price  : <span className={styles.priceNum}>{FinalPrice} $</span> </span>
                   <div className={styles.QuantBox}>
                     <label className={styles.label}>Quantity : </label>

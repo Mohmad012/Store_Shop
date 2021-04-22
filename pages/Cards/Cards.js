@@ -22,6 +22,8 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 
 	console.log('total' ,total)
 
+	console.log('cartItem' ,cartItem)
+
 	const [AddClass , setAddClass] = useState(false);
 
 	const [checkout, setCheckOut] = useState(false);
@@ -36,6 +38,22 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 			console.log(JSON.parse(localStorage.getItem('cart')))
 			setGetCart(JSON.parse(localStorage.getItem('cart')))
 		}
+	},[])
+
+	useEffect(() => {
+
+		// if (cartItem) {
+		//   if (product.title.length >= 50) {
+		//       document.querySelector('h1 span').innerHTML = product.title.slice(0 , 50) + '...'
+		//       document.querySelector('h1 span').classList.add("BoxTitle")
+		//   }
+		//   if (product.description.length >= 120) {
+		//       document.querySelector('p').innerHTML = 'Description :' + product.description.slice(0 , 90) + '...'
+		//   }
+		// }
+		// else{
+		//   console.log('product title Or Description Not Found')
+		// }
 	},[])
 
 
@@ -71,12 +89,18 @@ function Cards({total , cartItem , removeFromCart , clearCart}) {
 
 	})
 
+	// 
+
 	const showLastInfo = cartItem.map((item , index) => {
 		if (item.product.FinalPrice != 0) {			
 			
 			return (
 				<>
 					<div className={styles.boxTotal} key={index}>
+						<div className={styles.boxResImg}>
+							<img className={styles.img + AddClass ? 'active' : ' '} src={item.product.LastImage} alt={item.product.LastTitle}/>
+						</div>
+						<h1 className={styles.h1}>Title : <span className={styles.BoxTitle}>{item.product.LastTitle.length > 40 ? item.product.LastTitle.slice(0 , 40) + '...' : item.product.LastTitle}</span></h1>
 						<span className={styles.span}>Quantity: {item.product.quantity}</span>
 						<span className={styles.span}>Price: {item.product.FinalPrice}$</span>
 					</div>

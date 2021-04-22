@@ -1,15 +1,20 @@
 // Page Components
 import ProductsList from '../components/ProductsList'
 
-export default function Home({products}) {
+const Home = ({products}) => {
+
   return (
-  	<ProductsList products={products} />
+    <>
+  	  <ProductsList products={products} />
+    </>
   )
 }
 
+export default Home
+
 // Get Products And Add it in Props In This page
 export const getStaticProps = async () => {
-  const res = await fetch("https://fakestoreapi.com/products?limit=5")
+  const res = await fetch("https://fakestoreapi.com/products?limit=20")
   const products = await res.json()
 
   return {

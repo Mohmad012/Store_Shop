@@ -382,11 +382,37 @@ $Pointer:pointer;
 			}
 
 			.boxTotal{
+				.boxResImg{
+					width: 200px;
+					height: 200px;
+					padding: 10px;
+
+					img{
+					    max-width: 100%;
+					    max-height: 100%;
+					}
+				}
+
+				h1{
+				    font-size: 1.5em;
+				    color: #607d8b;
+				    display: block;
+				    padding-left: 21px;
+					.BoxTitle{
+					    display: block;
+					    top: 0;
+					    left: 70px;
+					    font-size: 1rem;
+					    color: #607d8b;
+					}
+				}
+
 				span{
 					    display: block;
 					    margin: 20px 0 20px 20px;
 					    font-size: 1.5rem;
 					    font-weight: bold;
+					    color: #607d8b;
 				}
 			}
 
