@@ -41,6 +41,9 @@ const Details = ({ product , addToCart}) => {
 
       if (VAL < 0)
           return ;
+    
+      if (VAL > 100)
+          return ;
 
       setQuantity(e.target.value)
   }
